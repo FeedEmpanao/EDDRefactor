@@ -2,12 +2,17 @@ public class Criba {
     private final int maximo;
     private int[] vector;
 
+    public Criba(int maximo) {
+        this.maximo = maximo;
+        vector = new int[maximo];
+    }
+
     // Generar números primos de 1 a max
     public int[] generarPrimos() {
         {
             int i, j;
             if (maximo >= 2) {
-// Declaraciones
+        // Declaraciones
                 int dim = maximo + 1; // Tamaño del array
                 boolean[] esPrimo = new boolean[dim];
                 // Inicializar el array
@@ -23,13 +28,13 @@ public class Criba {
                             esPrimo[j] = false;
                     }
                 }
-// ¿Cuántos primos hay?
+                // ¿Cuántos primos hay?
                 int cuenta = 0;
                 for (i = 0; i < dim; i++) {
                     if (esPrimo[i])
                         cuenta++;
                 }
-// Rellenar el vector de números primos
+                // Rellenar el vector de números primos
                 vector = new int[cuenta - 1];
                 for (i = 0, j = 0; i < dim; i++) {
                     if (esPrimo[i] && i != 2)
@@ -38,22 +43,18 @@ public class Criba {
                 return vector;
             } else { // max < 2
                 return new int[0];
-// Vector vacío
+            // Vector vacío
             }
         }
     }
 
-        public int getMaximo () {
-            return maximo;
-        }
-
-    public Criba(int maximo){
-            this.maximo = maximo;
-            vector = new int[maximo];
-        }
-
-        public int[] getVector () {
-            return vector;
-        }
+    public int getMaximo() {
+        return maximo;
     }
+
+
+    public int[] getVector() {
+        return vector;
+    }
+}
 
